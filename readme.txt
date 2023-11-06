@@ -19,7 +19,7 @@ Step 3: REQUIRED EMULATOR BINDINGS THE PROGRAM WILL NOT FUNCTION PROPERLY IF THI
 	R button: "e"
 	Screenshot button: "F12"
 
-Step 4: Set your screenshot directory within mGBA to ...\DiscPlaysPokemon\Release\Screenshots and rename your Rom to "Pokemon - Emerald Version (USA, Europe)" (I'm sorry but until I can update the code to not require a direct filename string this is the only workaround to you not having my exact test rom) 
+Step 4: Set your screenshot directory within mGBA to ...\DiscPlaysPokemon\Release\Screenshots
 Step 5: Open "key.json" FROM THE RELEASE FOLDER (not the one in Bin) in any text editor, notepad is more than fine, and replace "Token" with your discord bot token, keeping it within the quotation marks.
 Step 6: With the mGBA emulator running and your rom loaded (I do not assist in providing roms) run either the shortcut from the main folder or DiscPlaysPokemon.exe from the Release folder.
 Step 7: This is where it gets even more awkward, because in this program's current state you need to always have the emulator as a focused window or the bot will just be sending random keypresses to whatever window is in focus.
