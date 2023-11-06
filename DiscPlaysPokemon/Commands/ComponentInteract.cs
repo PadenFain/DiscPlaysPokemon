@@ -44,17 +44,21 @@ namespace DiscPlaysPokemon.Commands
                 inputSim.Keyboard.KeyDown(WindowsInput.Native.VirtualKeyCode.F12);
                 inputSim.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.F12);
                 await Task.Delay(200);
-                string screenShot = screenshotDir + "\\Pokemon - Emerald Version (USA, Europe)-0.png";
-                FileStream fs = new FileStream(screenShot, FileMode.Open, FileAccess.Read);
-                await e.Interaction.CreateResponseAsync(InteractionResponseType.UpdateMessage, new DiscordInteractionResponseBuilder()
-                    .AddFile(fs)
-                    .AddEmbed(new DiscordEmbedBuilder()
-                    .WithTitle("Controls")
-                    )
-                    .AddComponents(buttonUp, buttonDown, buttonLeft, buttonRight, buttonL)
-                    .AddComponents(buttonA, buttonB, buttonStart, buttonSelect, buttonR));
-                fs.Close();
-
+                if (Directory.Exists(screenshotDir))
+                {
+                    foreach (var file in Directory.GetFiles(screenshotDir))
+                    {
+                        FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read);
+                        await e.Interaction.CreateResponseAsync(InteractionResponseType.UpdateMessage, new DiscordInteractionResponseBuilder()
+                            .AddFile(fs)
+                            .AddEmbed(new DiscordEmbedBuilder()
+                            .WithTitle("Controls")
+                            )
+                            .AddComponents(buttonUp, buttonDown, buttonLeft, buttonRight, buttonL)
+                            .AddComponents(buttonA, buttonB, buttonStart, buttonSelect, buttonR));
+                        fs.Close();
+                    }
+                }
             }
             if (e.Interaction.Data.CustomId == "1")
             {
